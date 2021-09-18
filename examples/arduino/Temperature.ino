@@ -20,8 +20,8 @@ char *ftoa(char *a, double f, int precision) {
   itoa(heiltal, a, 10);
   while (*a != '\0') a++;
   *a++ = '.';
-  long desimal = abs((long)((f - heiltal) * p[precision]));
-  itoa(desimal, a, 10);
+  long decimal = abs((long)((f - heiltal) * p[precision]));
+  itoa(decimal, a, 10);
   return ret;
 }
 

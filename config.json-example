@@ -16,5 +16,8 @@
       "algo": "HS512",
       "secret": "mysecret"
     }
+  },
+  "serialport": {
+    "port": "/dev/tty0"
   }
 }

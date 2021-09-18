@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+const location_id = 1;
+
+//humidity,temperature
+var serial = require('../../lib/serial');
+const { query } = require('../../lib/db');
+
+serial.register_callback(async function (err, data) {
+  var parts = data.split(',');
+
+  if (parts[0] === 'Relative Humidity') {
+    console.log('first run, skipping');
+    return;
+  }
+
+  s.data = {
+    'humidity': Number(parts[0]),
+    'temperature': Number(parts[1])
+  };
+
+  for (const [ key, value ] of Object.entries({ 'humidity': 'Relative Humidity', 'temperature': 'Temperature ºF' })) {
+    if (data[key]) {
+      const [ results ] = await query(`
+        INSERT INTO sensor_data (
+          type,
+          location_id,
+          value
+        ) VALUES (
+          $1,
+          $2,
+          $3
+        ) RETURNING *
+      `, [ value, options.id, data[key] ]);
+
+      console.log(results);
+    }
+  }
+});
