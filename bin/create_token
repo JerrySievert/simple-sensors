@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+const config = require('../config.json');
+const program = require('commander');
+const Jwt = require('@hapi/jwt');
+
+program.version('1.0.0')
+       .description('Creates a token')
+       .option('-i, --location <id>', 'location id')
+       .option('-t, --ttl <seconds>', 'ttl (default 1 year)')
+       .parse(process.argv);
+
+const options = program.opts();
+
+if (!options.location) {
+  return console.log(program.help());
+}
+
+const ttl = options.ttl ? options.ttl : 31536000;
+const token = Jwt.token.generate(
+  {
+    aud: 'urn:audience:sensors',
+    iss: 'urn:issuer:sensors',
+    location_id: Number(options.location)
+  },
+  {
+    key: config.security.jwt.secret,
+    algorithm: config.security.jwt.algo
+  },
+  {
+    ttlSec: ttl
+  }
+);
+
+console.log(token);

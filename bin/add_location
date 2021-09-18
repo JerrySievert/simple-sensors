@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const { query } = require('../lib/db');
+
+program.version('1.0.0')
+       .description('Adds a Location')
+       .option('-n, --name <name>', 'location name')
+       .option('-d, --description <description>', 'description')
+       .option('-x, --longitude <longitude>', 'longitude')
+       .option('-y, --latitude <latitude>', 'latitiude')
+       .parse(process.argv);
+
+const options = program.opts();
+
+if (!options.name || !options.description) {
+  return console.log(program.help());
+}
+
+const add_location = async ( ) => {
+  const [ location ] = await query(`
+    INSERT INTO location (
+      name,
+      description,
+      longitude,
+      latitude,
+      enabled,
+      created_date,
+      updated_date
+    ) VALUES (
+      $1,
+      $2,
+      $3,
+      $4,
+      't',
+      NOW(),
+      NOW()
+    ) RETURNING *
+  `, [ options.name, options.description, options.longitude, options.latitude ]);
+
+  console.log(`Created new Location "${location.name}" with ID of ${location.id}`);
+};
+
+add_location();

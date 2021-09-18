@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+const fetch = require('node-fetch');
+const program = require('commander');
+const { query } = require('../../lib/db');
+
+program.version('1.0.0')
+       .description('Adds the latest data from a URL')
+       .option('-i, --id <id>', 'location id')
+       .option('-u, --url <url>', 'data url')
+       .parse(process.argv);
+
+const options = program.opts();
+
+if (!options.id || !options.url) {
+  return console.log(program.help());
+}
+
+const add_data = async ( ) => {
+  const results = await fetch(options.url);
+  const packet = await results.json();
+  const data = packet.data;
+
+  for (const [ key, value ] of Object.entries({ 'humidity': 'Relative Humidity', 'temperature': 'Temperature ºF' })) {
+    if (data[key]) {
+      const [ results ] = await query(`
+        INSERT INTO sensor_data (
+          type,
+          location_id,
+          value
+        ) VALUES (
+          $1,
+          $2,
+          $3
+        ) RETURNING *
+      `, [ value, options.id, data[key] ]);
+
+      console.log(results);
+    }
+  }
+
+  setTimeout(add_data, 60000);
+};
+
+
+add_data();

@@ -1,0 +1,24 @@
+{
+  "name": "sensors",
+  "version": "1.0.0",
+  "description": "Simple sensor server",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "migrate"
+  },
+  "author": "Jerry Sievert <code@legitimatesounding.com>",
+  "license": "BSD",
+  "devDependencies": {
+    "migrate": "^1.7.0",
+    "node-fetch": "^2.6.1"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.1.5",
+    "@hapi/inert": "^6.0.3",
+    "@hapi/jwt": "^2.1.0",
+    "commander": "^8.1.0",
+    "jwt-simple": "^0.5.6",
+    "pg": "^8.7.1",
+    "pg-promise": "^10.11.0"
+  }
+}

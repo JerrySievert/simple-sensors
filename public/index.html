@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/metricsgraphics.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js" integrity="sha512-RJJ1NNC88QhN7dwpCY8rm/6OxI+YdQP48DrLGe/eSAd+n+s1PXwQkkpzzAgoJe4cZFW2GALQoxox61gSY2yQfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.15.6/metricsgraphics.min.js" integrity="sha512-ajcrSc3e0yOZ8tbLioR0G0rrcMvXoJku+UZfOXq2gtwbNLJGhbuzyxo/mAlxHfTegrN51YGvZXT/Gxp7NsIXXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js/widget/graph.js"></script>
+  <script src="/js/sensors.js"></script>
+</head>
+<body>
+  <div id="content" class="rows"></div>
+  <script>
+    // start the data update for location 1
+    updateData(1);
+
+    // update the data every 60 seconds
+    window.setInterval(() => { updateData(1) }, 60000);
+  </script>
+</body>
+</html>

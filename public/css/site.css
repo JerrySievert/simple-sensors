@@ -1,0 +1,247 @@
+
+@import url(http://brick.a.ssl.fastly.net/Lato:300);
+@import url(http://brick.a.ssl.fastly.net/Vollkorn:400);
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600|Source+Code+Pro:300');
+
+body {
+  background-color: #333333;
+  font-family: Lato, Georgia, Palatino, serif;
+  color: #fefefe;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.4em;
+  width: 95%;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  color: #cbd6b2;
+}
+
+h1, h2, h3, h4, h5, p {
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0em;
+  margin-bottom: 0.2em;
+  font-size: 2.5em;
+  line-height: 1em;
+  color: #cbd6b2;
+}
+
+h2 {
+  font-size: 1.4em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0.4em;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5 {
+  font-size: 1.1em;
+}
+
+a {
+  color: #C17C74;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #C17C74;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 0.6em;
+}
+
+li {
+  line-height: 1.5em;
+}
+
+li ul, li ul {
+  margin-left: 1.5em;
+}
+
+ul, ol {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+p {
+  margin-left: 0.6em;
+  padding-bottom: 0.4em;
+}
+
+pre {
+  overflow: scroll;
+  max-width: 90%;
+  white-space: pre-wrap;
+  line-height: 1em;
+  background-color: #eee;
+  margin-left: 1.5em;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+
+code {
+  font-family: Source Code Pro, Consolas, Monaco, Andale Mono, monospace;
+  font-size: 0.8em;
+}
+
+aside {
+  display: block;
+  float: right;
+  width: 390px;
+}
+
+blockquote {
+  border-left: 0.5em solid #eee;
+  margin-left: 5%;
+  padding-left: 2em;
+}
+
+blockquote cite {
+  font-size: 0.8em;
+  line-height: 1.2em;
+  color: #bfbfbf;
+}
+
+blockquote cite:before {
+  content: '\2014 \00A0';
+}
+
+blockquote p {
+  color: #666;
+  max-width: 90%;
+}
+
+blockquote p:first-child::first-letter {
+  font-size: 1em !important;
+}
+
+hr {
+  width: 100%;
+  color: #999;
+}
+
+table {
+  margin-top: 1em;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  width: 100%;
+  font-size: 0.8em;
+  border: 1px solid #333;
+  color: #222;
+}
+
+th {
+  border-bottom: 1px solid #333;
+  padding-left: 1.4em;
+}
+
+td {
+  margin: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: none;
+}
+
+tr:nth-child(even) {
+  background-color: #eee;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+textarea {
+  min-height: 20em;
+  padding: 0.6em 1.5em;
+  max-width: 85%;
+  margin-left: 1.5em;
+  width: 85%;
+}
+
+input {
+  padding: 0.5em 1em;
+  margin-left: 1.5em;
+  width: 85%;
+}
+
+label {
+  display: block;
+  width: 10em;
+  float: left;
+  margin-top: 1em;
+}
+
+fieldset {
+  margin: 0 auto;
+  width: 25em;
+}
+
+button {
+  margin-top: 2em;
+  height: 2em;
+  margin-bottom: 1em;
+}
+
+.rows {
+  display: grid;
+  grid-auto-rows: 50% 50%;
+  gap: 40px;
+}
+
+.container_sensors {
+  display: grid;
+  grid-template-columns: 33% auto;
+  height: 780px;
+}
+
+.current_value {
+  width: 100%;
+  font-size: 13em;
+  padding-top: 1.5em;
+}
+
+.last_update {
+  margin-top: 260px;
+  font-size: 2em;
+}
+
+.historic_value: {
+  width: 100%;
+  font-size: 80px;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.hg-header {
+  font-size: 8rem;
+}
+
+#content {
+  margin-top: 40px;
+}
